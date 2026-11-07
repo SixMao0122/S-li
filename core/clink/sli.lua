@@ -1,21 +1,29 @@
 -- S-li Prompt Module for Windows CMD (via Clink)
 -- Designed for Six Life Injoy / Shell Line Interface
 
+local function run_cmd(cmd, mode)
+    local pipe = io.popen(cmd)
+    if not pipe then return nil end
+    local res = pipe:read(mode or "*l")
+    pipe:close()
+    return res
+end
+
 local function get_git_info()
-    local git_dir = io.popen("git rev-parse --is-inside-work-tree 2>nul"):read("*a")
+    local git_dir = run_cmd("git rev-parse --is-inside-work-tree 2>nul", "*a")
     if not git_dir or not git_dir:find("true") then
         return nil
     end
 
-    local branch = io.popen("git symbolic-ref --short HEAD 2>nul"):read("*l")
+    local branch = run_cmd("git symbolic-ref --short HEAD 2>nul", "*l")
     if not branch or branch == "" then
-        branch = io.popen("git rev-parse --short HEAD 2>nul"):read("*l")
+        branch = run_cmd("git rev-parse --short HEAD 2>nul", "*l")
     end
     if not branch or branch == "" then
         branch = "main"
     end
 
-    local status = io.popen("git status --porcelain 2>nul"):read("*a")
+    local status = run_cmd("git status --porcelain 2>nul", "*a")
     local is_dirty = (status and #status > 0)
 
     return {

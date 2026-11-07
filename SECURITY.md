@@ -1,6 +1,8 @@
-# S-li 安全性政策 (Security Policy)
+﻿# S-li 安全性政策 (Security Policy)
 
 `S-li` (Six Life Injoy / Shell Line Interface) 致力於提供安全、純粹且無後門的現代化終端提示符體驗。我們在設計之初便秉持 **Security-First (資安優先)** 原則。
+
+[English](SECURITY.en.md) | [繁體中文](SECURITY.md)
 
 ---
 

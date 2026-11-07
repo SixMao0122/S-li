@@ -49,7 +49,7 @@ function Show-Help {
     Write-Host "  sli icon git <symbol>      - 自訂 Git 分支圖示 (例如: →, , ⌥)"
     Write-Host "  sli style <arrow|rounded>  - 切換膠囊符號風格 (nerd_arrow, nerd_rounded, ascii)"
     Write-Host "  sli font install           - 一鍵自動下載並安裝 JetBrainsMono Nerd Font"
-    Write-Host "  sli user <name>            - 設定第一段自訂使用者識別名稱 (例如 sixma)"
+    Write-Host "  sli user <name>            - 設定第一段自訂使用者識別名稱 (例如 SxiMao)"
     Write-Host "  sli privacy <on|off>       - 開啟或關閉隱私遮蔽模式"
     Write-Host "  sli preview                - 即時展示當前提示符樣式"
     Write-Host "  sli install                - 一鍵將 S-li 整合至當前終端設定檔"
@@ -211,23 +211,28 @@ switch ($Command.ToLower()) {
         if (-not (Test-Path $profileDir)) {
             New-Item -ItemType Directory -Path $profileDir -Force | Out-Null
         }
-        $importCmd = ". `"$SliRoot\core\powershell\sli-prompt.ps1`""
+        $targetScript = Join-Path $SliRoot "core\powershell\sli-prompt.ps1"
+        $importCmd = ". `"$targetScript`""
         
-        $alreadyInstalled = $false
         if (Test-Path $profilePath) {
             $content = Get-Content -Path $profilePath -Raw
-            if ($content -match "sli-prompt\.ps1") {
-                $alreadyInstalled = $true
+            if ($content -match "\.\s+[\`"'].*sli-prompt\.ps1[\`"']") {
+                if ($content -match [regex]::Escape($importCmd)) {
+                    Write-Host "✓ S-li 已是最新配置，無需重複寫入: $profilePath" -ForegroundColor Yellow
+                } else {
+                    $newContent = [regex]::Replace($content, "\.\s+[\`"'].*?sli-prompt\.ps1[\`"']", $importCmd)
+                    [System.IO.File]::WriteAllText($profilePath, $newContent, [System.Text.Encoding]::UTF8)
+                    Write-Host "✓ 已成功將 S-li 路徑更新為當前位置: $targetScript" -ForegroundColor Green
+                }
+            } else {
+                Add-Content -Path $profilePath -Value "`n# S-li Terminal Prompt`n$importCmd`n" -Encoding UTF8
+                Write-Host "✓ 已成功將 S-li 寫入您的 PowerShell Profile: $profilePath" -ForegroundColor Green
             }
-        }
-
-        if (-not $alreadyInstalled) {
-            Add-Content -Path $profilePath -Value "`n# S-li Terminal Prompt`n$importCmd`n"
-            Write-Host "✓ 已成功將 S-li 寫入您的 PowerShell Profile: $profilePath" -ForegroundColor Green
-            Write-Host "重新開啟 PowerShell 或輸入 . `$PROFILE 即可立即生效！" -ForegroundColor Gray
         } else {
-            Write-Host "✓ S-li 已在您的 PowerShell Profile 中，無需重複寫入。" -ForegroundColor Yellow
+            Set-Content -Path $profilePath -Value "# S-li Terminal Prompt`n$importCmd`n" -Encoding UTF8
+            Write-Host "✓ 已成功建立並寫入您的 PowerShell Profile: $profilePath" -ForegroundColor Green
         }
+        Write-Host "重新開啟 PowerShell 或輸入 . `$PROFILE 即可立即生效！" -ForegroundColor Gray
     }
 
     default {

@@ -1,9 +1,22 @@
 ﻿# S-li Prompt Engine for PowerShell (5.1 & 7+)
 # Designed for Six Life Injoy / Shell Line Interface
 
+# 確保主控台輸出為 UTF-8 編碼以支援特殊符號與 Emoji
+try {
+    if ([Console]::OutputEncoding.CodePage -ne 65001) {
+        [Console]::OutputEncoding = [System.Text.Encoding]::UTF8
+    }
+} catch {}
+
 $script:SliRoot = Split-Path -Parent (Split-Path -Parent $PSScriptRoot)
 $script:ConfigFile = Join-Path $script:SliRoot "core\config.json"
 $script:ThemesDir = Join-Path $script:SliRoot "themes"
+
+# 記憶體快取變數，大幅減少磁碟 I/O
+$script:ConfigCache = $null
+$script:ConfigLastWrite = [DateTime]::MinValue
+$script:ThemeCache = @{}
+$script:ThemeLastWrite = @{}
 
 function Convert-HexToRgb {
     param([string]$Hex)
@@ -23,8 +36,14 @@ function Convert-HexToRgb {
 function Get-SliConfig {
     if (Test-Path $script:ConfigFile) {
         try {
+            $fileItem = Get-Item $script:ConfigFile
+            if ($null -ne $script:ConfigCache -and $fileItem.LastWriteTimeUtc -eq $script:ConfigLastWrite) {
+                return $script:ConfigCache
+            }
             $raw = [System.IO.File]::ReadAllText($script:ConfigFile, [System.Text.Encoding]::UTF8)
-            return $raw | ConvertFrom-Json
+            $script:ConfigCache = $raw | ConvertFrom-Json
+            $script:ConfigLastWrite = $fileItem.LastWriteTimeUtc
+            return $script:ConfigCache
         } catch {
             # Fallback below
         }
@@ -46,8 +65,15 @@ function Get-SliTheme {
     $themeFile = Join-Path $script:ThemesDir "$ThemeName.json"
     if (Test-Path $themeFile) {
         try {
+            $fileItem = Get-Item $themeFile
+            if ($script:ThemeCache.ContainsKey($ThemeName) -and $script:ThemeLastWrite[$ThemeName] -eq $fileItem.LastWriteTimeUtc) {
+                return $script:ThemeCache[$ThemeName]
+            }
             $raw = [System.IO.File]::ReadAllText($themeFile, [System.Text.Encoding]::UTF8)
-            return $raw | ConvertFrom-Json
+            $parsedTheme = $raw | ConvertFrom-Json
+            $script:ThemeCache[$ThemeName] = $parsedTheme
+            $script:ThemeLastWrite[$ThemeName] = $fileItem.LastWriteTimeUtc
+            return $parsedTheme
         } catch {}
     }
     return [PSCustomObject]@{
@@ -62,12 +88,34 @@ function Get-SliTheme {
 
 function Get-FastGitStatus {
     try {
+        # 先以極速原生路徑檢查當前或上層目錄是否存在 .git，非 Git 目錄直接返回，避免啟動外部 git.exe 進程
+        $dir = $ExecutionContext.SessionState.Path.CurrentLocation.Path
+        $hasGitMarker = $false
+        while ($dir) {
+            if (Test-Path (Join-Path $dir ".git")) {
+                $hasGitMarker = $true
+                break
+            }
+            $parent = Split-Path -Parent $dir
+            if ($parent -eq $dir -or [string]::IsNullOrEmpty($parent)) { break }
+            $dir = $parent
+        }
+        if (-not $hasGitMarker) {
+            return $null
+        }
+
+        # 先行驗證當前目錄是否處於 Git 工作樹內，防止非 Git 目錄誤判
+        $isInsideWorkTree = git rev-parse --is-inside-work-tree 2>$null
+        if ($isInsideWorkTree -ne "true") {
+            return $null
+        }
+
         $gitBranch = git symbolic-ref --short HEAD 2>$null
         if (-not $gitBranch) {
-            $gitBranch = git rev-parse --abbrev-ref HEAD 2>$null
+            $gitBranch = git rev-parse --short HEAD 2>$null
         }
         if (-not $gitBranch -or $gitBranch -eq "HEAD") {
-            # 檢查是否為剛 init 尚未 commit 的預設分支名
+            # 檢查是否為剛 git init 尚未提交初次 commit 的預設分支名
             $initBranch = git config init.defaultBranch 2>$null
             if (-not $initBranch) { $initBranch = "main" }
             $gitBranch = $initBranch
@@ -221,4 +269,19 @@ function global:prompt {
     [void]$sb.Append(" ")
 
     return $sb.ToString()
+}
+
+# 原生註冊 sli 管理指令，免除依賴 PATH 環境變數或重啟終端
+function global:sli {
+    [CmdletBinding()]
+    param(
+        [Parameter(ValueFromRemainingArguments = $true)]
+        [string[]]$Arguments
+    )
+    $cliScript = Join-Path $script:SliRoot "bin\sli.ps1"
+    if (Test-Path $cliScript) {
+        & $cliScript @Arguments
+    } else {
+        Write-Error "找不到 S-li 管理指令碼: $cliScript"
+    }
 }

@@ -39,7 +39,7 @@ jobs:
         shell: pwsh
         run: |
           Write-Host "Verifying PowerShell syntax..."
-          $files = Get-ChildItem -Path ./core/powershell -Filter *.ps1 -Recurse
+          $files = Get-ChildItem -Path . -Filter *.ps1 -Recurse -File
           foreach ($file in $files) {
               $errors = $null
               [System.Management.Automation.Language.Parser]::ParseFile($file.FullName, [ref]$null, [ref]$errors)

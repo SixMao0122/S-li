@@ -1,0 +1,68 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "SliConfiguration",
+  "description": "Configuration schema for S-li (Shell Line Interface / Six Life Injoy) Terminal Prompt.",
+  "type": "object",
+  "properties": {
+    "$schema": {
+      "type": "string",
+      "description": "Reference to the JSON schema."
+    },
+    "activeTheme": {
+      "type": "string",
+      "description": "Name of the active theme (e.g. sunset, cyberpunk, nord, tokyo-night, sakura, dracula, matrix)."
+    },
+    "symbolStyle": {
+      "type": "string",
+      "enum": ["nerd_arrow", "nerd_rounded", "ascii"],
+      "description": "Style of segment separators and default branch/venv symbols."
+    },
+    "customUserName": {
+      "type": "string",
+      "description": "Custom display username for the first segment. If empty, falls back to the system username."
+    },
+    "privacyMode": {
+      "type": "boolean",
+      "description": "Whether privacy masking mode is enabled to hide usernames and paths."
+    },
+    "showVenv": {
+      "type": "boolean",
+      "description": "Whether to detect and display active Python virtual environments (venv, conda, etc.)."
+    },
+    "showGit": {
+      "type": "boolean",
+      "description": "Whether to display real-time Git branch and dirty status."
+    },
+    "showTime": {
+      "type": "boolean",
+      "description": "Whether to display the time segment."
+    },
+    "timeIcon": {
+      "type": "string",
+      "description": "Icon or emoji displayed in the time segment."
+    },
+    "pythonIcon": {
+      "type": "string",
+      "description": "Icon or symbol displayed for Python virtual environments."
+    },
+    "gitIcon": {
+      "type": "string",
+      "description": "Icon or symbol displayed for Git branches."
+    },
+    "symbols": {
+      "type": "object",
+      "description": "Symbol configurations for each style preset.",
+      "additionalProperties": {
+        "type": "object",
+        "properties": {
+          "separator": { "type": "string" },
+          "branch": { "type": "string" },
+          "dirty": { "type": "string" },
+          "venv": { "type": "string" }
+        },
+        "required": ["separator", "branch", "dirty", "venv"]
+      }
+    }
+  },
+  "required": ["activeTheme", "symbolStyle", "privacyMode", "showVenv", "showGit", "showTime"]
+}

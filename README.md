@@ -1,32 +1,34 @@
-<div align="center">
+﻿<div align="center">
 
-# ⚡ S-li (Six Life Injoy)
+# S-li (Six Life Injoy)
 
 **專為 Windows 與跨平台打造的現代化美學終端提示符 (Shell Line Interface)**
 
 *讓每一天的終端機，都兼具極致美感、即時狀態感知與個性化表情體驗。*
 
+[English](README.en.md) | [繁體中文](README.md)
+
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![Security: Gitleaks](https://img.shields.io/badge/Security-Gitleaks%20Audited-brightgreen.svg)](SECURITY.md)
-[![Shell: PowerShell | CMD | GitBash | WSL](https://img.shields.io/badge/Shell-PowerShell%20%7C%20CMD%20%7C%20Git%20Bash%20%7C%20WSL-purple.svg)](#-四大終端支援與安裝指南)
-[![Style: Powerline](https://img.shields.io/badge/Style-Powerline%20Pills-ff69b4.svg)](#-自訂主題與外觀切換-sli-cli)
-[![Themes: 7 Built-in](https://img.shields.io/badge/Themes-7%20Themes%20Included-orange.svg)](#-多主題展示-themes-gallery)
+[![Shell: PowerShell | CMD | GitBash | WSL](https://img.shields.io/badge/Shell-PowerShell%20%7C%20CMD%20%7C%20Git%20Bash%20%7C%20WSL-purple.svg)](#四大終端支援與安裝指南)
+[![Style: Powerline](https://img.shields.io/badge/Style-Powerline%20Pills-ff69b4.svg)](#自訂主題與外觀切換-sli-cli)
+[![Themes: 7 Built-in](https://img.shields.io/badge/Themes-7%20Themes%20Included-orange.svg)](#多主題展示-themes-gallery)
 
 ---
 
-### 📷 終端效果展示 (Terminal Preview)
+### 終端效果展示 (Terminal Preview)
 
 #### 截圖實測 (Real Terminal Screenshot)
 ![S-li Terminal Preview](docs/images/preview.png)
 
-#### 🎨 六大精選主題預覽 (Multi-Themes Showcase)
+#### <a id="多主題展示-themes-gallery"></a>六大精選主題預覽 (Multi-Themes Showcase)
 ![S-li Themes Showcase](docs/images/themes-showcase.svg)
 
 </div>
 
 ---
 
-### ✨ 核心架構解析 (Segment Breakdown)
+### 核心架構解析 (Segment Breakdown)
 
 `S-li` **不需要**您額外下指令查詢狀態，而是**直接原生覆蓋**您現有的各類 CLI 提示符（Prompt / PS1）。每一次按 Enter、切換目錄或變更分支，都會即時動態呈現：
 
@@ -34,7 +36,7 @@
 [ 🟣 使用者身份 ]  [ 🔴 工作目錄 / Python venv ]  [ 🟠 Git 分支與變更 ]  [ 🔵 自訂表情與時間 ]  |
 ```
 
-1. **使用者識別 (Identity)**：預設顯示當前 Windows / Linux 帳號（如 `sixma`），支援 `sli user <name>` 自訂代號，並提供一鍵 `sli privacy on` 隱私遮蔽。
+1. **使用者識別 (Identity)**：預設顯示當前 Windows / Linux 帳號（如 `SxiMao`），支援 `sli user <name>` 自訂代號，並提供一鍵 `sli privacy on` 隱私遮蔽。
 2. **目錄與 Python 虛擬環境 (Path & Python Venv)**：
    - 自動即時偵測 `.venv`、`venv`、`conda`、`poetry`、`pipenv`、`uv` 等虛擬環境，以 `🐍 (環境名)` 優雅標示。
    - 智慧簡化家目錄長路徑為 `~`，保留清晰工作目錄名稱。
@@ -46,7 +48,7 @@
 
 ---
 
-## 🛠️ 前置準備與字型配置 (Font Setup)
+## 前置準備與字型配置 (Font Setup)
 
 為了讓 Powerline 膠囊箭頭（`` / ``）、愛心（`♡`）與分支符號（`→`）完美渲染而不破圖，需要搭配支援符號的字型：
 
@@ -71,12 +73,12 @@ sli font install
 
 ---
 
-## 🚀 四大終端支援與安裝指南
+## 四大終端支援與安裝指南
 
 克隆本專案至您的本地目錄：
 
 ```powershell
-git clone https://github.com/sixma/S-li.git
+git clone https://github.com/SixMao0122/S-li.git
 cd S-li
 ```
 
@@ -125,7 +127,7 @@ source ~/.bashrc
 
 ---
 
-## 🎨 自訂主題、表情與個人化 (`sli` CLI)
+## <a id="自訂主題與外觀切換-sli-cli"></a>自訂主題、表情與個人化 (sli CLI)
 
 日常敲指令由**原生覆蓋的提示符**全自動運作；而 `sli` 指令工具專職負責外觀風格與個人化調整。
 
@@ -182,11 +184,11 @@ sli <指令> [選項]
 
 ---
 
-## 📈 Star 成長趨勢 (Stargazers over time)
+## Star 成長趨勢 (Stargazers over time)
 
 <div align="center">
 
-[![Star History Chart](https://api.star-history.com/svg?repos=sixma/S-li&type=Date)](https://star-history.com/#sixma/S-li&Date)
+[![Star History Chart](https://api.star-history.com/svg?repos=SixMao0122/S-li&type=Date)](https://star-history.com/#SixMao0122/S-li&Date)
 
 *若 S-li 讓您的終端機煥然一新，歡迎右上角點個 ⭐️ Star 給予支持！*
 
@@ -194,7 +196,7 @@ sli <指令> [選項]
 
 ---
 
-## 💡 常見問題 (FAQ)
+## 常見問題 (FAQ)
 
 <details>
 <summary><b>Q1: 為什麼終端機出現問號或方塊亂碼？</b></summary>
@@ -213,10 +215,10 @@ sli <指令> [選項]
 
 ---
 
-## 🔒 安全與開源政策
+## 安全與開源政策
 
 本專案採透明純腳本架構，無預編譯二進位執行檔，並經 Gitleaks 安全審計。詳情請參閱 [`SECURITY.md`](SECURITY.md)。
 
-## 📄 授權條款 (License)
+## 授權條款 (License)
 
 本專案採用 [MIT License](LICENSE) 條款開放原始碼。

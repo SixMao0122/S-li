@@ -3,17 +3,15 @@
 # Designed for Six Life Injoy / Shell Line Interface
 
 _sli_wsl_git_info() {
+    git rev-parse --is-inside-work-tree >/dev/null 2>&1 || return 1
+
     local branch
     branch=$(git symbolic-ref --short HEAD 2>/dev/null)
     if [ -z "$branch" ]; then
         branch=$(git rev-parse --short HEAD 2>/dev/null)
     fi
     if [ -z "$branch" ]; then
-        if git rev-parse --is-inside-work-tree >/dev/null 2>&1; then
-            branch="master"
-        else
-            return 1
-        fi
+        branch=$(git config init.defaultBranch 2>/dev/null || echo "main")
     fi
 
     printf "%s" "$branch"
