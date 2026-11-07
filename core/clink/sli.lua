@@ -1,5 +1,5 @@
 -- S-li Prompt Module for Windows CMD (via Clink)
--- Designed for Six Life Injoy / Shell Line Interface
+-- Designed for Shell Line Interface
 
 local function run_cmd(cmd, mode)
     local pipe = io.popen(cmd)

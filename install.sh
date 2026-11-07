@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # S-li Linux WSL & Git Bash One-Click Installer
-# Designed for Six Life Injoy / Shell Line Interface
+# Designed for Shell Line Interface
 
 set -e
 
@@ -8,7 +8,7 @@ SLI_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
 echo ""
 echo "========================================="
-echo "   S-li (Six Life Injoy) Shell 安裝程式   "
+echo "          S-li Shell 安裝程式            "
 echo "========================================="
 echo ""
 

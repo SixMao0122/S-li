@@ -1,5 +1,5 @@
 ﻿# S-li Windows One-Click Installer
-# Designed for Six Life Injoy / Shell Line Interface
+# Designed for Shell Line Interface
 
 [CmdletBinding()]
 param(
@@ -11,7 +11,7 @@ $ErrorActionPreference = "Stop"
 $SliRoot = $PSScriptRoot
 Write-Host ""
 Write-Host "=========================================" -ForegroundColor Magenta
-Write-Host "    S-li (Six Life Injoy) 自動安裝程式   " -ForegroundColor Cyan
+Write-Host "         S-li 自動安裝程式               " -ForegroundColor Cyan
 Write-Host "=========================================" -ForegroundColor Magenta
 Write-Host "正在為您的環境配置現代化終端提示符..." -ForegroundColor Gray
 Write-Host ""

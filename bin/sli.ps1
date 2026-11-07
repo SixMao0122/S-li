@@ -1,6 +1,6 @@
 ﻿<#
 .SYNOPSIS
-    S-li (Six Life Injoy / Shell Line Interface) 樣式與配置管理工具
+    S-li (Shell Line Interface) 樣式與配置管理工具
 .DESCRIPTION
     管理 S-li 終端提示符的主題、圖示、表情符號、字型與隱私設定。
 #>
@@ -37,7 +37,7 @@ function Save-Config {
 function Show-Help {
     $e = [char]27
     Write-Host ""
-    Write-Host "$e[1;35mS-li (Six Life Injoy)$e[0m - 現代終端提示符樣式管理工具" -ForegroundColor Magenta
+    Write-Host "$e[1;35mS-li$e[0m - 現代終端提示符樣式管理工具" -ForegroundColor Magenta
     Write-Host "平時直接原生覆蓋終端提示符，`sli` 指令專職負責外觀切換與自訂。" -ForegroundColor Gray
     Write-Host ""
     Write-Host "常用指令:" -ForegroundColor Cyan

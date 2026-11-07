@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # S-li Prompt Engine for Linux WSL (Bash & Zsh)
-# Designed for Six Life Injoy / Shell Line Interface
+# Designed for Shell Line Interface
 
 _sli_wsl_git_info() {
     git rev-parse --is-inside-work-tree >/dev/null 2>&1 || return 1

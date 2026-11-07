@@ -1,5 +1,5 @@
 ﻿# S-li Prompt Engine for PowerShell (5.1 & 7+)
-# Designed for Six Life Injoy / Shell Line Interface
+# Designed for Shell Line Interface
 
 # 確保主控台輸出為 UTF-8 編碼以支援特殊符號與 Emoji
 try {

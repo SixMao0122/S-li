@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # S-li Prompt Engine for Git Bash (MSYS2 / MinGW) & Linux WSL
-# Designed for Six Life Injoy / Shell Line Interface
+# Designed for Shell Line Interface
 
 _sli_get_git_info() {
     git rev-parse --is-inside-work-tree >/dev/null 2>&1 || return 1

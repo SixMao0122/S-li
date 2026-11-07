@@ -1,37 +1,37 @@
-﻿# S-li 安全性政策 (Security Policy)
+﻿# S-li Security Policy
 
-`S-li` (Six Life Injoy / Shell Line Interface) 致力於提供安全、純粹且無後門的現代化終端提示符體驗。我們在設計之初便秉持 **Security-First (資安優先)** 原則。
+`S-li` (Shell Line Interface) is committed to providing a secure, lightweight, and trustworthy modern terminal experience. Our design adheres to a strict **Security-First** philosophy.
 
-[English](SECURITY.en.md) | [繁體中文](SECURITY.md)
-
----
-
-## 核心資安原則
-
-1. **零動態下載與無遠端程式碼執行 (No Arbitrary Remote Execution)**
-   - `S-li` 全程採用原生透明腳本（PowerShell、Bash、Lua、CMD），不下載黑箱編譯之二進位可執行檔（`.exe` / `.dll`）。
-   - 禁止在 Prompt 計算過程中使用動態 `Invoke-Expression`、`eval` 執行未受信任的外部字串。
-
-2. **隱私防護與路徑遮蔽 (Privacy by Design)**
-   - 支援 `Privacy Mode`：在進行螢幕錄影、線上會議分享或截圖時，可一鍵遮蔽 Windows 使用者名稱、電腦名稱或敏感路徑。
-   - 預設將家目錄 `C:\Users\<username>` 自動正規化為 `~`，避免在公共場合展示個人真實姓名。
-
-3. **敏感資訊與環境變數保護**
-   - 核心邏輯僅偵測無害的狀態變數（如 `$env:VIRTUAL_ENV`、`$env:CONDA_DEFAULT_ENV`、Git 分支）。
-   - 嚴格禁止讀取或印出潛在包含憑證的環境變數（如 `*_TOKEN`, `*_KEY`, `*_SECRET`, `PASSWORD` 等）。
-
-4. **CI/CD 自動化安全掃描**
-   - 每次 Push 與 Pull Request 皆由 GitHub Actions 運行 `Gitleaks` 掃描，防止任何 API 金鑰、認證金鑰誤推至版本庫。
+[English](SECURITY.md) | [繁體中文](SECURITY.zh-TW.md)
 
 ---
 
-## 回報安全性漏洞 (Reporting a Vulnerability)
+## Core Security Principles
 
-如果您在 `S-li` 中發現任何潛在的安全性漏洞或隱私洩漏疑慮，請**切勿**直接建立公開 Issue。
+1. **Zero Arbitrary Remote Execution**
+   - S-li runs strictly on transparent native shell scripts (PowerShell, Bash, Lua). We never download closed-source binaries or external executables (`.exe` / `.dll`).
+   - S-li does not evaluate untrusted strings via `Invoke-Expression` or `eval` during prompt evaluation.
 
-請依照以下流程通報：
-1. 請至本專案的 GitHub 頁面，點選 **Security** 分頁。
-2. 點選 **Report a vulnerability** 提交私密回報。
-3. 我們將於 48 小時內進行確認與評估，並在修補完成後統一發布安全性公告。
+2. **Privacy by Design**
+   - **Privacy Mode**: Mask usernames and file paths with a single toggle (`sli privacy on`) during live streaming, presentations, or screenshots.
+   - Home directories (`C:\Users\<username>`) are automatically shortened to `~`, preventing accidental exposure of real personal names.
 
-感謝您協助維護 `S-li` 的社群安全！
+3. **Credential & Environment Protection**
+   - The prompt engine only inspects benign state indicators (e.g. `$env:VIRTUAL_ENV`, `$env:CONDA_DEFAULT_ENV`, Git branch).
+   - Reading or echoing environment variables that may contain sensitive credentials (e.g. `*_TOKEN`, `*_KEY`, `*_SECRET`, `PASSWORD`) is strictly forbidden.
+
+4. **Automated CI/CD Security Audits**
+   - Every push and pull request is scanned by `Gitleaks` in GitHub Actions to prevent accidental secret or credential leaks.
+
+---
+
+## Reporting a Vulnerability
+
+If you discover a potential vulnerability or security concern in `S-li`, please **do not** open a public issue.
+
+Follow these steps to submit a report:
+1. Navigate to the **Security** tab of the S-li repository on GitHub.
+2. Click **Report a vulnerability** to submit an advisory privately.
+3. We will respond within 48 hours to assess and patch the reported issue.
+
+Thank you for helping keep the S-li community secure!
