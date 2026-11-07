@@ -1,0 +1,51 @@
+name: Security & Quality Audit
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+
+jobs:
+  secret-scan:
+    name: Gitleaks Secret Scanning
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Run Gitleaks
+        uses: gitleaks/gitleaks-action@v2
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+  script-audit:
+    name: Script Lint & Compatibility Check
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Run ShellCheck for Bash Scripts
+        uses: ludeeus/action-shellcheck@master
+        with:
+          scandir: './core'
+          severity: 'warning'
+        continue-on-error: true
+
+      - name: Test PowerShell Profiles on Linux pwsh
+        shell: pwsh
+        run: |
+          Write-Host "Verifying PowerShell syntax..."
+          $files = Get-ChildItem -Path ./core/powershell -Filter *.ps1 -Recurse
+          foreach ($file in $files) {
+              $errors = $null
+              [System.Management.Automation.Language.Parser]::ParseFile($file.FullName, [ref]$null, [ref]$errors)
+              if ($errors) {
+                  Write-Error "Syntax error in $($file.Name): $($errors[0].Message)"
+                  exit 1
+              }
+              Write-Host "✓ Syntax verified: $($file.Name)"
+          }

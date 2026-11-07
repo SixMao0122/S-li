@@ -1,0 +1,28 @@
+{
+  "name": "sunset",
+  "displayName": "Sunset Glow (Classic S-li)",
+  "segments": {
+    "user": {
+      "bg": "#7b2cbf",
+      "fg": "#ffffff",
+      "bold": true
+    },
+    "path": {
+      "bg": "#d94676",
+      "fg": "#ffffff",
+      "bold": false
+    },
+    "git": {
+      "bg": "#f08a5d",
+      "fg": "#ffffff",
+      "cleanBg": "#f08a5d",
+      "dirtyBg": "#e26d5c",
+      "bold": false
+    },
+    "time": {
+      "bg": "#4385be",
+      "fg": "#ffffff",
+      "bold": false
+    }
+  }
+}

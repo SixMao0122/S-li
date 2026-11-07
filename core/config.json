@@ -1,0 +1,31 @@
+﻿{
+    "$schema":  "./config.schema.json",
+    "activeTheme":  "sunset",
+    "symbolStyle":  "nerd_arrow",
+    "customUserName":  "",
+    "privacyMode":  false,
+    "showVenv":  true,
+    "showGit":  true,
+    "showTime":  true,
+    "timeIcon":  "♡",
+    "symbols":  {
+                    "nerd_arrow":  {
+                                       "separator":  "",
+                                       "branch":  "→",
+                                       "dirty":  "*",
+                                       "venv":  "🐍"
+                                   },
+                    "nerd_rounded":  {
+                                         "separator":  "",
+                                         "branch":  "",
+                                         "dirty":  "*",
+                                         "venv":  ""
+                                     },
+                    "ascii":  {
+                                  "separator":  "\u003e",
+                                  "branch":  "-\u003e",
+                                  "dirty":  "*",
+                                  "venv":  "[py]"
+                              }
+                }
+}

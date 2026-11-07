@@ -1,0 +1,28 @@
+{
+  "name": "nord",
+  "displayName": "Nord Arctic Frost",
+  "segments": {
+    "user": {
+      "bg": "#2e3440",
+      "fg": "#88c0d0",
+      "bold": true
+    },
+    "path": {
+      "bg": "#3b4252",
+      "fg": "#eceff4",
+      "bold": false
+    },
+    "git": {
+      "bg": "#5e81ac",
+      "fg": "#eceff4",
+      "cleanBg": "#5e81ac",
+      "dirtyBg": "#bf616a",
+      "bold": false
+    },
+    "time": {
+      "bg": "#81a1c1",
+      "fg": "#2e3440",
+      "bold": true
+    }
+  }
+}

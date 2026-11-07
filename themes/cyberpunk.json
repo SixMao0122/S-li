@@ -1,0 +1,28 @@
+{
+  "name": "cyberpunk",
+  "displayName": "Cyberpunk Neon 2077",
+  "segments": {
+    "user": {
+      "bg": "#1f1b24",
+      "fg": "#00f0ff",
+      "bold": true
+    },
+    "path": {
+      "bg": "#7928ca",
+      "fg": "#ffffff",
+      "bold": false
+    },
+    "git": {
+      "bg": "#ff007f",
+      "fg": "#ffffff",
+      "cleanBg": "#ff007f",
+      "dirtyBg": "#ff4d4d",
+      "bold": false
+    },
+    "time": {
+      "bg": "#ffe600",
+      "fg": "#111111",
+      "bold": true
+    }
+  }
+}
