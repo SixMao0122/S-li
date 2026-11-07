@@ -47,7 +47,8 @@ function Show-Help {
     Write-Host "  sli icon <emoji|name>      - 自訂時間區段表情 (例如: 🔥, 🚀, ✨, ☕, 🐱, 🌸, skull, heart)"
     Write-Host "  sli icon py <symbol>       - 自訂 Python 虛擬環境符號 (例如: 🐍, ⚡, λ, [py])"
     Write-Host "  sli icon git <symbol>      - 自訂 Git 分支圖示 (例如: →, , ⌥)"
-    Write-Host "  sli style <arrow|rounded>  - 切換膠囊符號風格 (nerd_arrow, nerd_rounded, ascii)"
+    Write-Host "  sli style                  - 檢視所有可用分隔符風格清單與當前樣式"
+    Write-Host "  sli style <name>           - 切換提示符分隔樣式 (arrow, rounded, slanted, flame, pixel, wave, flat, ascii)"
     Write-Host "  sli font install           - 一鍵自動下載並安裝 JetBrainsMono Nerd Font"
     Write-Host "  sli user <name>            - 設定第一段自訂使用者識別名稱 (例如 SxiMao)"
     Write-Host "  sli privacy <on|off>       - 開啟或關閉隱私遮蔽模式"
@@ -159,13 +160,59 @@ switch ($Command.ToLower()) {
     }
 
     "style" {
-        $validStyles = @("nerd_arrow", "nerd_rounded", "ascii")
-        if ($validStyles -contains $SubCommand.ToLower()) {
-            $cfg.symbolStyle = $SubCommand.ToLower()
-            Save-Config $cfg
-            Write-Host "✓ 已切換符號風格為: $SubCommand" -ForegroundColor Green
+        $stylePresets = [ordered]@{
+            "nerd_arrow"   = @{ glyph = ""; desc = "Powerline 經典尖角箭頭 (預設)" }
+            "nerd_rounded" = @{ glyph = ""; desc = "圓角膠囊風格 (Rounded Pills)" }
+            "slanted"      = @{ glyph = ""; desc = "上斜切幾何風 (Right Slanted)" }
+            "slant_down"   = @{ glyph = ""; desc = "下斜切導流風 (Slant Downward)" }
+            "flame"        = @{ glyph = ""; desc = "動感火焰波浪 (Powerline Flame)" }
+            "pixel"        = @{ glyph = ""; desc = "8-bit 像素積木 (Pixel Squares)" }
+            "wave"         = @{ glyph = ""; desc = "海浪波紋造型 (Wave Ripple)" }
+            "flat"         = @{ glyph = " "; desc = "極簡純色色塊 (Flat Colorblocks)" }
+            "ascii"        = @{ glyph = ">"; desc = "免字型相容文字模式 (Universal ASCII)" }
+        }
+
+        # 支援別名映射 (Aliases)
+        $aliases = @{
+            "arrow"     = "nerd_arrow"
+            "round"     = "nerd_rounded"
+            "rounded"   = "nerd_rounded"
+            "pill"      = "nerd_rounded"
+            "pills"     = "nerd_rounded"
+            "fire"      = "flame"
+            "block"     = "pixel"
+            "ripple"    = "wave"
+            "none"      = "flat"
+            "simple"    = "flat"
+        }
+
+        if ([string]::IsNullOrWhiteSpace($SubCommand) -or $SubCommand.ToLower() -eq "list") {
+            Write-Host "`n當前分隔風格: $($cfg.symbolStyle)`n" -ForegroundColor Green
+            Write-Host "可用分隔風格庫 (Separator Styles):" -ForegroundColor Cyan
+            foreach ($k in $stylePresets.Keys) {
+                $isCurrent = ($k -eq $cfg.symbolStyle)
+                $prefix = if ($isCurrent) { "* " } else { "  " }
+                $fgColor = if ($isCurrent) { "Green" } else { "White" }
+                $item = $stylePresets[$k]
+                $glyphDisplay = if ($item.glyph -eq " ") { "[無]" } else { $item.glyph }
+                Write-Host "$prefix$($k.PadRight(14)) ➜ $($glyphDisplay.PadRight(4)) $($item.desc)" -ForegroundColor $fgColor
+            }
+            Write-Host "`n使用指令切換: sli style <風格名稱>" -ForegroundColor Yellow
+            Write-Host "範例: sli style slanted 或 sli style flame 或 sli style rounded`n" -ForegroundColor Gray
         } else {
-            Write-Host "可用風格: nerd_arrow (預設箭頭), nerd_rounded (圓角膠囊), ascii (無字型平替)" -ForegroundColor Yellow
+            $targetStyle = $SubCommand.ToLower()
+            if ($aliases.ContainsKey($targetStyle)) {
+                $targetStyle = $aliases[$targetStyle]
+            }
+
+            if ($cfg.symbols -and $cfg.symbols.PSObject.Properties[$targetStyle]) {
+                $cfg.symbolStyle = $targetStyle
+                Save-Config $cfg
+                Write-Host "✓ 已成功切換提示符分隔風格為: $targetStyle" -ForegroundColor Green
+                Write-Host "請在終端機按下 Enter 即可查看即時變更，或輸入 'sli preview' 預覽！" -ForegroundColor Gray
+            } else {
+                Write-Host "錯誤: 找不到風格 '$SubCommand'。可輸入 'sli style' 檢視完整風格庫。" -ForegroundColor Red
+            }
         }
     }
 

@@ -7,7 +7,7 @@
     "showVenv":  true,
     "showGit":  true,
     "showTime":  true,
-    "timeIcon":  "🧟‍♂️",
+    "timeIcon":  "♡",
     "pythonIcon":  "🐍",
     "gitIcon":  "→",
     "symbols":  {
@@ -23,6 +23,42 @@
                                          "dirty":  "*",
                                          "venv":  ""
                                      },
+                    "slanted":  {
+                                    "separator":  "",
+                                    "branch":  "→",
+                                    "dirty":  "*",
+                                    "venv":  "🐍"
+                                },
+                    "slant_down":  {
+                                       "separator":  "",
+                                       "branch":  "→",
+                                       "dirty":  "*",
+                                       "venv":  "🐍"
+                                   },
+                    "flame":  {
+                                  "separator":  "",
+                                  "branch":  "🔥",
+                                  "dirty":  "*",
+                                  "venv":  "🐍"
+                              },
+                    "pixel":  {
+                                  "separator":  "",
+                                  "branch":  "→",
+                                  "dirty":  "*",
+                                  "venv":  "🐍"
+                              },
+                    "wave":  {
+                                 "separator":  "",
+                                 "branch":  "~",
+                                 "dirty":  "*",
+                                 "venv":  "🐍"
+                             },
+                    "flat":  {
+                                 "separator":  " ",
+                                 "branch":  "→",
+                                 "dirty":  "*",
+                                 "venv":  "🐍"
+                             },
                     "ascii":  {
                                   "separator":  "\u003e",
                                   "branch":  "-\u003e",

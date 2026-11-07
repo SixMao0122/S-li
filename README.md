@@ -173,9 +173,17 @@ sli <指令> [選項]
   ```
 
 ### 3. 膠囊分隔風格 (Separator Styles)
-- `sli style nerd_arrow`：Powerline 經典尖角箭頭 (``)
-- `sli style nerd_rounded`：圓角膠囊風格 (``)
-- `sli style ascii`：純文字免字型相容模式 (`>`)
+- `sli style`：檢視所有可用風格與當前設定
+- **多樣化分隔樣式庫**：
+  - `sli style nerd_arrow`：Powerline 經典尖角箭頭 (``，預設)
+  - `sli style nerd_rounded`：圓角膠囊風格 (``，或簡寫 `sli style round`)
+  - `sli style slanted`：上斜切幾何風 (``)
+  - `sli style slant_down`：下斜切導流風 (``)
+  - `sli style flame`：動感火焰波浪 (``，或簡寫 `sli style fire`)
+  - `sli style pixel`：8-bit 像素積木 (``，或簡寫 `sli style block`)
+  - `sli style wave`：海浪波紋造型 (``)
+  - `sli style flat`：極簡純色平鋪，無任何箭頭符號 (` `，或簡寫 `sli style none`)
+  - `sli style ascii`：純文字免字型相容模式 (`>`)
 
 ### 4. 隱私模式 (Privacy Mode)
 在進行實況錄影、線上會議分享螢幕或截圖時，一鍵隱藏使用者名稱與絕對路徑：

@@ -152,7 +152,7 @@ function global:prompt {
 
     if ($config.symbols -and $config.symbols.$styleKey) {
         $curSym = $config.symbols.$styleKey
-        if ($curSym.separator) { $sep = $curSym.separator }
+        if ($null -ne $curSym.separator) { $sep = $curSym.separator }
         if (-not $config.gitIcon -and $curSym.branch) { $branchIcon = $curSym.branch }
         if ($curSym.dirty) { $dirtyIcon = $curSym.dirty }
         if (-not $config.pythonIcon -and $curSym.venv) { $venvIcon = $curSym.venv }
@@ -263,9 +263,11 @@ function global:prompt {
 
     # Closing arrow
     [void]$sb.Append($reset)
-    [void]$sb.Append(("{0}[38;2;{1};{2};{3}m" -f $esc, $timeBg.R, $timeBg.G, $timeBg.B))
-    [void]$sb.Append($sep)
-    [void]$sb.Append($reset)
+    if (-not [string]::IsNullOrWhiteSpace($sep)) {
+        [void]$sb.Append(("{0}[38;2;{1};{2};{3}m" -f $esc, $timeBg.R, $timeBg.G, $timeBg.B))
+        [void]$sb.Append($sep)
+        [void]$sb.Append($reset)
+    }
     [void]$sb.Append(" ")
 
     return $sb.ToString()
@@ -273,14 +275,9 @@ function global:prompt {
 
 # 原生註冊 sli 管理指令，免除依賴 PATH 環境變數或重啟終端
 function global:sli {
-    [CmdletBinding()]
-    param(
-        [Parameter(ValueFromRemainingArguments = $true)]
-        [string[]]$Arguments
-    )
     $cliScript = Join-Path $script:SliRoot "bin\sli.ps1"
     if (Test-Path $cliScript) {
-        & $cliScript @Arguments
+        & $cliScript @args
     } else {
         Write-Error "找不到 S-li 管理指令碼: $cliScript"
     }

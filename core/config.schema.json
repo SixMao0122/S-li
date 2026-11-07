@@ -14,7 +14,7 @@
     },
     "symbolStyle": {
       "type": "string",
-      "enum": ["nerd_arrow", "nerd_rounded", "ascii"],
+      "enum": ["nerd_arrow", "nerd_rounded", "slanted", "slant_down", "flame", "pixel", "wave", "flat", "ascii"],
       "description": "Style of segment separators and default branch/venv symbols."
     },
     "customUserName": {

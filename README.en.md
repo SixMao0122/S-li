@@ -173,9 +173,17 @@ Includes 7 curated high-contrast and subtle gradient themes:
   ```
 
 ### 3. Capsule Separator Styles
-- `sli style nerd_arrow`: Powerline arrow glyph (``)
-- `sli style nerd_rounded`: Rounded pill capsule (``)
-- `sli style ascii`: Universal plain-text ASCII mode (`>`)
+- `sli style`: Inspect all available separator styles and current active selection
+- **Available Separator Presets**:
+  - `sli style nerd_arrow`: Classic Powerline right arrow (``, Default)
+  - `sli style nerd_rounded`: Rounded pill capsule (``, or shorthand `sli style round`)
+  - `sli style slanted`: Right slanted triangle (``)
+  - `sli style slant_down`: Downward slanted diagonal (``)
+  - `sli style flame`: Dynamic flame wave (``, or shorthand `sli style fire`)
+  - `sli style pixel`: 8-bit retro pixel blocks (``, or shorthand `sli style block`)
+  - `sli style wave`: Elegant wave ripple (``)
+  - `sli style flat`: Minimalist flat colorblocks with no arrows (` `, or shorthand `sli style none`)
+  - `sli style ascii`: Universal plain-text ASCII mode (`>`)
 
 ### 4. Privacy Mode
 Mask usernames and sensitive directory paths during screen sharing, live streaming, or presentations:
