@@ -1,0 +1,28 @@
+{
+  "name": "tokyo-night",
+  "displayName": "Tokyo Night (Neon Dusk)",
+  "segments": {
+    "user": {
+      "bg": "#1a1b26",
+      "fg": "#7aa2f7",
+      "bold": true
+    },
+    "path": {
+      "bg": "#24283b",
+      "fg": "#bb9af7",
+      "bold": false
+    },
+    "git": {
+      "bg": "#7aa2f7",
+      "fg": "#15161e",
+      "cleanBg": "#7aa2f7",
+      "dirtyBg": "#f7768e",
+      "bold": true
+    },
+    "time": {
+      "bg": "#bb9af7",
+      "fg": "#15161e",
+      "bold": true
+    }
+  }
+}

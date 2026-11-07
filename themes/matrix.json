@@ -1,0 +1,28 @@
+{
+  "name": "matrix",
+  "displayName": "Matrix Hacker Green",
+  "segments": {
+    "user": {
+      "bg": "#0d1b10",
+      "fg": "#00ff66",
+      "bold": true
+    },
+    "path": {
+      "bg": "#15331b",
+      "fg": "#a3e635",
+      "bold": false
+    },
+    "git": {
+      "bg": "#1f5128",
+      "fg": "#ffffff",
+      "cleanBg": "#1f5128",
+      "dirtyBg": "#dc2626",
+      "bold": true
+    },
+    "time": {
+      "bg": "#22c55e",
+      "fg": "#052e16",
+      "bold": true
+    }
+  }
+}

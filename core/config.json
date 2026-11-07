@@ -8,6 +8,8 @@
     "showGit":  true,
     "showTime":  true,
     "timeIcon":  "♡",
+    "pythonIcon":  "🐍",
+    "gitIcon":  "→",
     "symbols":  {
                     "nerd_arrow":  {
                                        "separator":  "",

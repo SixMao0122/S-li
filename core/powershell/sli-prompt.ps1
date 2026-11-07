@@ -98,16 +98,16 @@ function global:prompt {
     # 符號與圖示設定
     $styleKey = if ($config.symbolStyle) { $config.symbolStyle } else { "nerd_arrow" }
     $sep = [char]0xe0b0
-    $branchIcon = [char]0x2192   # →
+    $branchIcon = if ($config.gitIcon) { $config.gitIcon } else { [char]0x2192 }   # →
     $dirtyIcon = "*"
-    $venvIcon = [char]::ConvertFromUtf32(0x1F40D) # 🐍
+    $venvIcon = if ($config.pythonIcon) { $config.pythonIcon } else { [char]::ConvertFromUtf32(0x1F40D) } # 🐍
 
     if ($config.symbols -and $config.symbols.$styleKey) {
         $curSym = $config.symbols.$styleKey
         if ($curSym.separator) { $sep = $curSym.separator }
-        if ($curSym.branch) { $branchIcon = $curSym.branch }
+        if (-not $config.gitIcon -and $curSym.branch) { $branchIcon = $curSym.branch }
         if ($curSym.dirty) { $dirtyIcon = $curSym.dirty }
-        if ($curSym.venv) { $venvIcon = $curSym.venv }
+        if (-not $config.pythonIcon -and $curSym.venv) { $venvIcon = $curSym.venv }
     }
 
     # 1. Segment 1: User / Identity

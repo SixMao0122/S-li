@@ -1,0 +1,193 @@
+<svg fill="none" viewBox="0 0 850 480" width="850" height="480" xmlns="http://www.w3.org/2000/svg">
+  <foreignObject width="100%" height="100%">
+    <div xmlns="http://www.w3.org/1999/xhtml">
+      <style>
+        .container {
+          background-color: #14161b;
+          border-radius: 12px;
+          border: 1px solid #282c34;
+          box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+          font-family: 'JetBrains Mono', 'Cascadia Code', 'Fira Code', 'Courier New', monospace;
+          color: #f8f8f2;
+          padding: 18px 24px 28px 24px;
+          box-sizing: border-box;
+          width: 850px;
+          height: 480px;
+        }
+        .header {
+          display: flex;
+          align-items: center;
+          margin-bottom: 22px;
+          padding-bottom: 12px;
+          border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .dots {
+          display: flex;
+          gap: 8px;
+        }
+        .dot {
+          width: 12px;
+          height: 12px;
+          border-radius: 50%;
+        }
+        .dot-red { background: #ff5f56; }
+        .dot-yellow { background: #ffbd2e; }
+        .dot-green { background: #27c93f; }
+        .title {
+          flex: 1;
+          text-align: center;
+          font-size: 13px;
+          font-weight: 600;
+          color: #7b8496;
+          margin-right: 50px;
+        }
+        .prompt-line {
+          display: flex;
+          align-items: center;
+          margin-bottom: 18px;
+          font-size: 14px;
+          line-height: 28px;
+        }
+        .theme-label {
+          width: 140px;
+          font-size: 12px;
+          font-weight: bold;
+          color: #8b949e;
+          text-transform: uppercase;
+          letter-spacing: 0.5px;
+        }
+        .segment-wrapper {
+          display: flex;
+          align-items: center;
+          height: 28px;
+        }
+        .seg {
+          padding: 0 10px;
+          font-weight: 500;
+          display: flex;
+          align-items: center;
+          height: 28px;
+        }
+        .arrow {
+          font-size: 18px;
+          line-height: 28px;
+          display: inline-block;
+        }
+        .cursor {
+          display: inline-block;
+          width: 8px;
+          height: 18px;
+          background: #ffffff;
+          margin-left: 6px;
+          animation: blink 1s infinite;
+        }
+        @keyframes blink {
+          0%, 49% { opacity: 1; }
+          50%, 100% { opacity: 0; }
+        }
+      </style>
+
+      <div class="container">
+        <div class="header">
+          <div class="dots">
+            <div class="dot dot-red"></div>
+            <div class="dot dot-yellow"></div>
+            <div class="dot dot-green"></div>
+          </div>
+          <div class="title">S-li Multi-Theme Showcase &amp; Custom Icons</div>
+        </div>
+
+        <!-- 1. Sunset -->
+        <div class="prompt-line">
+          <div class="theme-label" style="color: #f08a5d;">Sunset (Classic)</div>
+          <div class="segment-wrapper">
+            <span class="seg" style="background:#7b2cbf; color:#fff; border-radius: 4px 0 0 4px;">sixma</span>
+            <span class="arrow" style="color:#7b2cbf; background:#d94676;">&#xe0b0;</span>
+            <span class="seg" style="background:#d94676; color:#fff;">🐍 (.venv) my-project</span>
+            <span class="arrow" style="color:#d94676; background:#f08a5d;">&#xe0b0;</span>
+            <span class="seg" style="background:#f08a5d; color:#fff;">&#x2192; (master)</span>
+            <span class="arrow" style="color:#f08a5d; background:#4385be;">&#xe0b0;</span>
+            <span class="seg" style="background:#4385be; color:#fff;">&#x2661; 14:20</span>
+            <span class="arrow" style="color:#4385be;">&#xe0b0;</span>
+            <span class="cursor"></span>
+          </div>
+        </div>
+
+        <!-- 2. Cyberpunk -->
+        <div class="prompt-line">
+          <div class="theme-label" style="color: #00f0ff;">Cyberpunk 2077</div>
+          <div class="segment-wrapper">
+            <span class="seg" style="background:#1f1b24; color:#00f0ff; border-radius: 4px 0 0 4px;">sixma</span>
+            <span class="arrow" style="color:#1f1b24; background:#7928ca;">&#xe0b0;</span>
+            <span class="seg" style="background:#7928ca; color:#fff;">&#x26a1; (.venv) neural-net</span>
+            <span class="arrow" style="color:#7928ca; background:#ff007f;">&#xe0b0;</span>
+            <span class="seg" style="background:#ff007f; color:#fff;">&#xe0a0; (feature/ai)</span>
+            <span class="arrow" style="color:#ff007f; background:#ffe600;">&#xe0b0;</span>
+            <span class="seg" style="background:#ffe600; color:#111; font-weight:bold;">&#x1f525; 14:20</span>
+            <span class="arrow" style="color:#ffe600;">&#xe0b0;</span>
+          </div>
+        </div>
+
+        <!-- 3. Sakura Bloom -->
+        <div class="prompt-line">
+          <div class="theme-label" style="color: #e8a5c8;">Sakura Bloom</div>
+          <div class="segment-wrapper">
+            <span class="seg" style="background:#d47fa6; color:#fff; border-radius: 4px 0 0 4px;">sixma</span>
+            <span class="arrow" style="color:#d47fa6; background:#e8a5c8;">&#xe0b0;</span>
+            <span class="seg" style="background:#e8a5c8; color:#3b232c;">🌸 (.venv) web-app</span>
+            <span class="arrow" style="color:#e8a5c8; background:#fcd3de;">&#xe0b0;</span>
+            <span class="seg" style="background:#fcd3de; color:#4a2835; font-weight:bold;">&#x2192; (main)</span>
+            <span class="arrow" style="color:#fcd3de; background:#88c0d0;">&#xe0b0;</span>
+            <span class="seg" style="background:#88c0d0; color:#1a2a30; font-weight:bold;">&#x2728; 14:20</span>
+            <span class="arrow" style="color:#88c0d0;">&#xe0b0;</span>
+          </div>
+        </div>
+
+        <!-- 4. Tokyo Night -->
+        <div class="prompt-line">
+          <div class="theme-label" style="color: #7aa2f7;">Tokyo Night</div>
+          <div class="segment-wrapper">
+            <span class="seg" style="background:#1a1b26; color:#7aa2f7; border-radius: 4px 0 0 4px;">sixma</span>
+            <span class="arrow" style="color:#1a1b26; background:#24283b;">&#xe0b0;</span>
+            <span class="seg" style="background:#24283b; color:#bb9af7;">🐍 api-backend</span>
+            <span class="arrow" style="color:#24283b; background:#7aa2f7;">&#xe0b0;</span>
+            <span class="seg" style="background:#7aa2f7; color:#15161e; font-weight:bold;">* &#x2192; (dev)</span>
+            <span class="arrow" style="color:#7aa2f7; background:#bb9af7;">&#xe0b0;</span>
+            <span class="seg" style="background:#bb9af7; color:#15161e; font-weight:bold;">&#x1f680; 14:20</span>
+            <span class="arrow" style="color:#bb9af7;">&#xe0b0;</span>
+          </div>
+        </div>
+
+        <!-- 5. Dracula -->
+        <div class="prompt-line">
+          <div class="theme-label" style="color: #bd93f9;">Dracula</div>
+          <div class="segment-wrapper">
+            <span class="seg" style="background:#282a36; color:#bd93f9; border-radius: 4px 0 0 4px;">sixma</span>
+            <span class="arrow" style="color:#282a36; background:#44475a;">&#xe0b0;</span>
+            <span class="seg" style="background:#44475a; color:#f8f8f2;">🐍 microservice</span>
+            <span class="arrow" style="color:#44475a; background:#6272a4;">&#xe0b0;</span>
+            <span class="seg" style="background:#6272a4; color:#50fa7b; font-weight:bold;">&#x2192; (master)</span>
+            <span class="arrow" style="color:#6272a4; background:#bd93f9;">&#xe0b0;</span>
+            <span class="seg" style="background:#bd93f9; color:#282a36; font-weight:bold;">&#x2615; 14:20</span>
+            <span class="arrow" style="color:#bd93f9;">&#xe0b0;</span>
+          </div>
+        </div>
+
+        <!-- 6. Nord -->
+        <div class="prompt-line">
+          <div class="theme-label" style="color: #88c0d0;">Nord Frost</div>
+          <div class="segment-wrapper">
+            <span class="seg" style="background:#2e3440; color:#88c0d0; border-radius: 4px 0 0 4px;">sixma</span>
+            <span class="arrow" style="color:#2e3440; background:#3b4252;">&#xe0b0;</span>
+            <span class="seg" style="background:#3b4252; color:#eceff4;">🐍 cloud-infra</span>
+            <span class="arrow" style="color:#3b4252; background:#5e81ac;">&#xe0b0;</span>
+            <span class="seg" style="background:#5e81ac; color:#eceff4;">&#x2192; (prod)</span>
+            <span class="arrow" style="color:#5e81ac; background:#81a1c1;">&#xe0b0;</span>
+            <span class="seg" style="background:#81a1c1; color:#2e3440; font-weight:bold;">&#x2661; 14:20</span>
+            <span class="arrow" style="color:#81a1c1;">&#xe0b0;</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </foreignObject>
+</svg>

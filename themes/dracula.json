@@ -1,0 +1,28 @@
+{
+  "name": "dracula",
+  "displayName": "Dracula Vampire Theme",
+  "segments": {
+    "user": {
+      "bg": "#282a36",
+      "fg": "#bd93f9",
+      "bold": true
+    },
+    "path": {
+      "bg": "#44475a",
+      "fg": "#f8f8f2",
+      "bold": false
+    },
+    "git": {
+      "bg": "#6272a4",
+      "fg": "#50fa7b",
+      "cleanBg": "#6272a4",
+      "dirtyBg": "#ff5555",
+      "bold": true
+    },
+    "time": {
+      "bg": "#bd93f9",
+      "fg": "#282a36",
+      "bold": true
+    }
+  }
+}

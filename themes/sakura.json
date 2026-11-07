@@ -1,0 +1,28 @@
+{
+  "name": "sakura",
+  "displayName": "Sakura Bloom (Romantic Pink)",
+  "segments": {
+    "user": {
+      "bg": "#d47fa6",
+      "fg": "#ffffff",
+      "bold": true
+    },
+    "path": {
+      "bg": "#e8a5c8",
+      "fg": "#3b232c",
+      "bold": false
+    },
+    "git": {
+      "bg": "#fcd3de",
+      "fg": "#4a2835",
+      "cleanBg": "#fcd3de",
+      "dirtyBg": "#e06c75",
+      "bold": true
+    },
+    "time": {
+      "bg": "#88c0d0",
+      "fg": "#1a2a30",
+      "bold": true
+    }
+  }
+}

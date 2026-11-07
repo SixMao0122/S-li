@@ -2,7 +2,7 @@
 .SYNOPSIS
     S-li (Six Life Injoy / Shell Line Interface) 樣式與配置管理工具
 .DESCRIPTION
-    管理 S-li 終端提示符的主題、圖示、使用者識別與隱私設定。
+    管理 S-li 終端提示符的主題、圖示、表情符號、字型與隱私設定。
 #>
 
 [CmdletBinding()]
@@ -38,12 +38,17 @@ function Show-Help {
     $e = [char]27
     Write-Host ""
     Write-Host "$e[1;35mS-li (Six Life Injoy)$e[0m - 現代終端提示符樣式管理工具" -ForegroundColor Magenta
-    Write-Host "平時直接覆蓋終端提示符，`sli` 僅用於樣式與個人化切換。" -ForegroundColor Gray
+    Write-Host "平時直接原生覆蓋終端提示符，`sli` 指令專職負責外觀切換與自訂。" -ForegroundColor Gray
     Write-Host ""
-    Write-Host "用法:" -ForegroundColor Cyan
-    Write-Host "  sli theme                  - 列出所有可用主題與當前主題"
-    Write-Host "  sli theme <name>           - 切換至指定主題 (sunset, cyberpunk, nord)"
-    Write-Host "  sli style <arrow|rounded>  - 切換分隔符號風格 (nerd_arrow, nerd_rounded, ascii)"
+    Write-Host "常用指令:" -ForegroundColor Cyan
+    Write-Host "  sli theme                  - 檢視所有可用主題與當前主題"
+    Write-Host "  sli theme <name>           - 切換主題 (sunset, cyberpunk, nord, tokyo-night, sakura, dracula, matrix)"
+    Write-Host "  sli icon                   - 檢視當前表情符號與熱門清單"
+    Write-Host "  sli icon <emoji|name>      - 自訂時間區段表情 (例如: 🔥, 🚀, ✨, ☕, 🐱, 🌸, skull, heart)"
+    Write-Host "  sli icon py <symbol>       - 自訂 Python 虛擬環境符號 (例如: 🐍, ⚡, λ, [py])"
+    Write-Host "  sli icon git <symbol>      - 自訂 Git 分支圖示 (例如: →, , ⌥)"
+    Write-Host "  sli style <arrow|rounded>  - 切換膠囊符號風格 (nerd_arrow, nerd_rounded, ascii)"
+    Write-Host "  sli font install           - 一鍵自動下載並安裝 JetBrainsMono Nerd Font"
     Write-Host "  sli user <name>            - 設定第一段自訂使用者識別名稱 (例如 sixma)"
     Write-Host "  sli privacy <on|off>       - 開啟或關閉隱私遮蔽模式"
     Write-Host "  sli preview                - 即時展示當前提示符樣式"
@@ -79,8 +84,77 @@ switch ($Command.ToLower()) {
                 Write-Host "✓ 已成功切換主題為: $targetTheme" -ForegroundColor Green
                 Write-Host "請在終端機按下 Enter 即可查看即時變更！" -ForegroundColor Gray
             } else {
-                Write-Host "錯誤: 找不到主題 '$targetTheme'。可用主題: sunset, cyberpunk, nord" -ForegroundColor Red
+                Write-Host "錯誤: 找不到主題 '$targetTheme'。可輸入 'sli theme' 查看完整清單。" -ForegroundColor Red
             }
+        }
+    }
+
+    "icon" {
+        $presetIcons = @{
+            "heart"   = "♡"
+            "love"    = "♥"
+            "fire"    = "🔥"
+            "star"    = "✨"
+            "sparkle" = "⭐"
+            "rocket"  = "🚀"
+            "coffee"  = "☕"
+            "cat"     = "🐱"
+            "sakura"  = "🌸"
+            "skull"   = "💀"
+            "bolt"    = "⚡"
+            "music"   = "🎵"
+        }
+
+        if ([string]::IsNullOrWhiteSpace($SubCommand)) {
+            Write-Host "`n當前圖示設定:" -ForegroundColor Cyan
+            Write-Host "  時間段表情: $($cfg.timeIcon)" -ForegroundColor Green
+            Write-Host "  Python 符號: $($cfg.pythonIcon)" -ForegroundColor Green
+            Write-Host "  Git 分支符號: $($cfg.gitIcon)" -ForegroundColor Green
+            Write-Host "`n熱門推薦表情捷徑:" -ForegroundColor Yellow
+            $presetIcons.GetEnumerator() | ForEach-Object {
+                Write-Host "  sli icon $($_.Key.PadRight(8)) ➜ $($_.Value)"
+            }
+            Write-Host "`n您也可以傳入任意 Emoji 或字元，例如: sli icon 🦄 或 sli icon 🔥`n" -ForegroundColor Gray
+        } elseif ($SubCommand.ToLower() -eq "py") {
+            if (-not [string]::IsNullOrWhiteSpace($Value)) {
+                $cfg.pythonIcon = $Value
+                Save-Config $cfg
+                Write-Host "✓ 已設定 Python 虛擬環境符號為: $Value" -ForegroundColor Green
+            } else {
+                Write-Host "當前 Python 符號: $($cfg.pythonIcon) (用法: sli icon py <符號>)" -ForegroundColor Cyan
+            }
+        } elseif ($SubCommand.ToLower() -eq "git") {
+            if (-not [string]::IsNullOrWhiteSpace($Value)) {
+                $cfg.gitIcon = $Value
+                Save-Config $cfg
+                Write-Host "✓ 已設定 Git 分支符號為: $Value" -ForegroundColor Green
+            } else {
+                Write-Host "當前 Git 符號: $($cfg.gitIcon) (用法: sli icon git <符號>)" -ForegroundColor Cyan
+            }
+        } else {
+            $newIcon = $SubCommand
+            if ($presetIcons.ContainsKey($SubCommand.ToLower())) {
+                $newIcon = $presetIcons[$SubCommand.ToLower()]
+            }
+            $cfg.timeIcon = $newIcon
+            Save-Config $cfg
+            Write-Host "✓ 已成功將時間段表情切換為: $newIcon" -ForegroundColor Green
+            Write-Host "請在終端機按下 Enter 即可查看即時變更！" -ForegroundColor Gray
+        }
+    }
+
+    "font" {
+        if ($SubCommand.ToLower() -eq "install") {
+            $fontScript = Join-Path $SliRoot "scripts\install-nerd-font.ps1"
+            if (Test-Path $fontScript) {
+                & $fontScript
+            } else {
+                Write-Error "找不到字型安裝腳本: $fontScript"
+            }
+        } else {
+            Write-Host "`n字型管理指令:" -ForegroundColor Cyan
+            Write-Host "  sli font install   - 自動下載並安裝 JetBrainsMono Nerd Font 字型" -ForegroundColor Green
+            Write-Host "手動下載官方連結: https://www.nerdfonts.com/font-downloads`n" -ForegroundColor Gray
         }
     }
 
