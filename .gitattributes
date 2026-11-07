@@ -1,0 +1,26 @@
+# S-li Git Attributes - Cross-Platform Compatibility Rule
+
+# Auto-detect text files and perform LF normalization
+* text=auto
+
+# Linux / WSL / Git Bash scripts MUST use LF
+*.sh text eol=lf
+*.bash text eol=lf
+*.lua text eol=lf
+
+# Windows PowerShell & Batch files use CRLF
+*.ps1 text eol=crlf
+*.psm1 text eol=crlf
+*.cmd text eol=crlf
+*.bat text eol=crlf
+
+# Documents & Configuration
+*.md text
+*.json text
+*.yml text
+*.yaml text
+
+# Images
+*.png binary
+*.jpg binary
+*.ico binary
