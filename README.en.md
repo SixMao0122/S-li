@@ -21,7 +21,7 @@
 #### Real Terminal Screenshot
 ![S-li Terminal Preview](docs/images/preview.png)
 
-#### <a id="multi-theme-gallery"></a>Multi-Theme Showcase
+#### <a id="multi-theme-gallery"></a>Multi-Themes & Separator Styles Showcase
 ![S-li Themes Showcase](docs/images/themes-showcase.svg)
 
 </div>

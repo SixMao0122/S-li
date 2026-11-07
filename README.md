@@ -21,7 +21,7 @@
 #### 截圖實測 (Real Terminal Screenshot)
 ![S-li Terminal Preview](docs/images/preview.png)
 
-#### <a id="多主題展示-themes-gallery"></a>六大精選主題預覽 (Multi-Themes Showcase)
+#### <a id="多主題展示-themes-gallery"></a>精選主題與多樣分隔風格預覽 (Themes & Separator Styles Showcase)
 ![S-li Themes Showcase](docs/images/themes-showcase.svg)
 
 </div>

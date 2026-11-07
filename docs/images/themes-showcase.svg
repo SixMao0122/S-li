@@ -1,193 +1,173 @@
-<svg fill="none" viewBox="0 0 850 480" width="850" height="480" xmlns="http://www.w3.org/2000/svg">
-  <foreignObject width="100%" height="100%">
-    <div xmlns="http://www.w3.org/1999/xhtml">
-      <style>
-        .container {
-          background-color: #14161b;
-          border-radius: 12px;
-          border: 1px solid #282c34;
-          box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
-          font-family: 'JetBrains Mono', 'Cascadia Code', 'Fira Code', 'Courier New', monospace;
-          color: #f8f8f2;
-          padding: 18px 24px 28px 24px;
-          box-sizing: border-box;
-          width: 850px;
-          height: 480px;
-        }
-        .header {
-          display: flex;
-          align-items: center;
-          margin-bottom: 22px;
-          padding-bottom: 12px;
-          border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-        }
-        .dots {
-          display: flex;
-          gap: 8px;
-        }
-        .dot {
-          width: 12px;
-          height: 12px;
-          border-radius: 50%;
-        }
-        .dot-red { background: #ff5f56; }
-        .dot-yellow { background: #ffbd2e; }
-        .dot-green { background: #27c93f; }
-        .title {
-          flex: 1;
-          text-align: center;
-          font-size: 13px;
-          font-weight: 600;
-          color: #7b8496;
-          margin-right: 50px;
-        }
-        .prompt-line {
-          display: flex;
-          align-items: center;
-          margin-bottom: 18px;
-          font-size: 14px;
-          line-height: 28px;
-        }
-        .theme-label {
-          width: 140px;
-          font-size: 12px;
-          font-weight: bold;
-          color: #8b949e;
-          text-transform: uppercase;
-          letter-spacing: 0.5px;
-        }
-        .segment-wrapper {
-          display: flex;
-          align-items: center;
-          height: 28px;
-        }
-        .seg {
-          padding: 0 10px;
-          font-weight: 500;
-          display: flex;
-          align-items: center;
-          height: 28px;
-        }
-        .arrow {
-          font-size: 18px;
-          line-height: 28px;
-          display: inline-block;
-        }
-        .cursor {
-          display: inline-block;
-          width: 8px;
-          height: 18px;
-          background: #ffffff;
-          margin-left: 6px;
-          animation: blink 1s infinite;
-        }
-        @keyframes blink {
-          0%, 49% { opacity: 1; }
-          50%, 100% { opacity: 0; }
-        }
-      </style>
-
-      <div class="container">
-        <div class="header">
-          <div class="dots">
-            <div class="dot dot-red"></div>
-            <div class="dot dot-yellow"></div>
-            <div class="dot dot-green"></div>
-          </div>
-          <div class="title">S-li Multi-Theme Showcase &amp; Custom Icons</div>
-        </div>
-
-        <!-- 1. Sunset -->
-        <div class="prompt-line">
-          <div class="theme-label" style="color: #f08a5d;">Sunset (Classic)</div>
-          <div class="segment-wrapper">
-            <span class="seg" style="background:#7b2cbf; color:#fff; border-radius: 4px 0 0 4px;">sixma</span>
-            <span class="arrow" style="color:#7b2cbf; background:#d94676;">&#xe0b0;</span>
-            <span class="seg" style="background:#d94676; color:#fff;">🐍 (.venv) my-project</span>
-            <span class="arrow" style="color:#d94676; background:#f08a5d;">&#xe0b0;</span>
-            <span class="seg" style="background:#f08a5d; color:#fff;">&#x2192; (master)</span>
-            <span class="arrow" style="color:#f08a5d; background:#4385be;">&#xe0b0;</span>
-            <span class="seg" style="background:#4385be; color:#fff;">&#x2661; 14:20</span>
-            <span class="arrow" style="color:#4385be;">&#xe0b0;</span>
-            <span class="cursor"></span>
-          </div>
-        </div>
-
-        <!-- 2. Cyberpunk -->
-        <div class="prompt-line">
-          <div class="theme-label" style="color: #00f0ff;">Cyberpunk 2077</div>
-          <div class="segment-wrapper">
-            <span class="seg" style="background:#1f1b24; color:#00f0ff; border-radius: 4px 0 0 4px;">sixma</span>
-            <span class="arrow" style="color:#1f1b24; background:#7928ca;">&#xe0b0;</span>
-            <span class="seg" style="background:#7928ca; color:#fff;">&#x26a1; (.venv) neural-net</span>
-            <span class="arrow" style="color:#7928ca; background:#ff007f;">&#xe0b0;</span>
-            <span class="seg" style="background:#ff007f; color:#fff;">&#xe0a0; (feature/ai)</span>
-            <span class="arrow" style="color:#ff007f; background:#ffe600;">&#xe0b0;</span>
-            <span class="seg" style="background:#ffe600; color:#111; font-weight:bold;">&#x1f525; 14:20</span>
-            <span class="arrow" style="color:#ffe600;">&#xe0b0;</span>
-          </div>
-        </div>
-
-        <!-- 3. Sakura Bloom -->
-        <div class="prompt-line">
-          <div class="theme-label" style="color: #e8a5c8;">Sakura Bloom</div>
-          <div class="segment-wrapper">
-            <span class="seg" style="background:#d47fa6; color:#fff; border-radius: 4px 0 0 4px;">sixma</span>
-            <span class="arrow" style="color:#d47fa6; background:#e8a5c8;">&#xe0b0;</span>
-            <span class="seg" style="background:#e8a5c8; color:#3b232c;">🌸 (.venv) web-app</span>
-            <span class="arrow" style="color:#e8a5c8; background:#fcd3de;">&#xe0b0;</span>
-            <span class="seg" style="background:#fcd3de; color:#4a2835; font-weight:bold;">&#x2192; (main)</span>
-            <span class="arrow" style="color:#fcd3de; background:#88c0d0;">&#xe0b0;</span>
-            <span class="seg" style="background:#88c0d0; color:#1a2a30; font-weight:bold;">&#x2728; 14:20</span>
-            <span class="arrow" style="color:#88c0d0;">&#xe0b0;</span>
-          </div>
-        </div>
-
-        <!-- 4. Tokyo Night -->
-        <div class="prompt-line">
-          <div class="theme-label" style="color: #7aa2f7;">Tokyo Night</div>
-          <div class="segment-wrapper">
-            <span class="seg" style="background:#1a1b26; color:#7aa2f7; border-radius: 4px 0 0 4px;">sixma</span>
-            <span class="arrow" style="color:#1a1b26; background:#24283b;">&#xe0b0;</span>
-            <span class="seg" style="background:#24283b; color:#bb9af7;">🐍 api-backend</span>
-            <span class="arrow" style="color:#24283b; background:#7aa2f7;">&#xe0b0;</span>
-            <span class="seg" style="background:#7aa2f7; color:#15161e; font-weight:bold;">* &#x2192; (dev)</span>
-            <span class="arrow" style="color:#7aa2f7; background:#bb9af7;">&#xe0b0;</span>
-            <span class="seg" style="background:#bb9af7; color:#15161e; font-weight:bold;">&#x1f680; 14:20</span>
-            <span class="arrow" style="color:#bb9af7;">&#xe0b0;</span>
-          </div>
-        </div>
-
-        <!-- 5. Dracula -->
-        <div class="prompt-line">
-          <div class="theme-label" style="color: #bd93f9;">Dracula</div>
-          <div class="segment-wrapper">
-            <span class="seg" style="background:#282a36; color:#bd93f9; border-radius: 4px 0 0 4px;">sixma</span>
-            <span class="arrow" style="color:#282a36; background:#44475a;">&#xe0b0;</span>
-            <span class="seg" style="background:#44475a; color:#f8f8f2;">🐍 microservice</span>
-            <span class="arrow" style="color:#44475a; background:#6272a4;">&#xe0b0;</span>
-            <span class="seg" style="background:#6272a4; color:#50fa7b; font-weight:bold;">&#x2192; (master)</span>
-            <span class="arrow" style="color:#6272a4; background:#bd93f9;">&#xe0b0;</span>
-            <span class="seg" style="background:#bd93f9; color:#282a36; font-weight:bold;">&#x2615; 14:20</span>
-            <span class="arrow" style="color:#bd93f9;">&#xe0b0;</span>
-          </div>
-        </div>
-
-        <!-- 6. Nord -->
-        <div class="prompt-line">
-          <div class="theme-label" style="color: #88c0d0;">Nord Frost</div>
-          <div class="segment-wrapper">
-            <span class="seg" style="background:#2e3440; color:#88c0d0; border-radius: 4px 0 0 4px;">sixma</span>
-            <span class="arrow" style="color:#2e3440; background:#3b4252;">&#xe0b0;</span>
-            <span class="seg" style="background:#3b4252; color:#eceff4;">🐍 cloud-infra</span>
-            <span class="arrow" style="color:#3b4252; background:#5e81ac;">&#xe0b0;</span>
-            <span class="seg" style="background:#5e81ac; color:#eceff4;">&#x2192; (prod)</span>
-            <span class="arrow" style="color:#5e81ac; background:#81a1c1;">&#xe0b0;</span>
-            <span class="seg" style="background:#81a1c1; color:#2e3440; font-weight:bold;">&#x2661; 14:20</span>
-            <span class="arrow" style="color:#81a1c1;">&#xe0b0;</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </foreignObject>
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 620" width="900" height="620">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#141721" />
+      <stop offset="100%" stop-color="#0e1017" />
+    </linearGradient>
+    <filter id="shadow" x="-5%" y="-5%" width="110%" height="110%">
+      <feDropShadow dx="0" dy="16" stdDeviation="24" flood-color="#000000" flood-opacity="0.5" />
+    </filter>
+  </defs>
+  <!-- Terminal Window Background -->
+  <rect x="10" y="10" width="880" height="600" rx="14" fill="url(#bgGrad)" stroke="#232736" stroke-width="1.5" filter="url(#shadow)" />
+  <!-- Header Bar -->
+  <circle cx="36" cy="30" r="5.5" fill="#ff5f56" />
+  <circle cx="54" cy="30" r="5.5" fill="#ffbd2e" />
+  <circle cx="72" cy="30" r="5.5" fill="#27c93f" />
+  <text x="450.0" y="34" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Ubuntu, sans-serif" font-size="12" font-weight="600" fill="#69728a" text-anchor="middle">S-li — Multi-Theme &amp; Separator Styles Showcase</text>
+  <line x1="10" y1="48" x2="890" y2="48" stroke="#1d212e" stroke-width="1" />
+  <!-- Row 1: Sunset • Arrow -->
+  <g transform="translate(0, 66)">
+    <text x="32" y="18" font-family="'JetBrains Mono', 'Cascadia Code', monospace" font-size="11.5" font-weight="700" fill="#75809c" letter-spacing="0.5">Sunset • Arrow</text>
+    <rect x="195" y="0" width="67" height="28" fill="#7b2cbf" />
+    <text x="228.5" y="18" font-family="'JetBrains Mono', 'Cascadia Code', monospace" font-size="12.5" font-weight="600" fill="#ffffff" text-anchor="middle">SxiMao</text>
+    <rect x="262" y="0" width="14" height="28" fill="#d94676" />
+    <g fill="#7b2cbf"><polygon points="262,0 276,14.0 262,28" /></g>
+    <rect x="276" y="0" width="50" height="28" fill="#d94676" />
+    <text x="301.0" y="18" font-family="'JetBrains Mono', 'Cascadia Code', monospace" font-size="12.5" font-weight="600" fill="#ffffff" text-anchor="middle">S-li</text>
+    <rect x="326" y="0" width="14" height="28" fill="#f08a5d" />
+    <g fill="#d94676"><polygon points="326,0 340,14.0 326,28" /></g>
+    <rect x="340" y="0" width="89" height="28" fill="#f08a5d" />
+    <text x="384.5" y="18" font-family="'JetBrains Mono', 'Cascadia Code', monospace" font-size="12.5" font-weight="600" fill="#ffffff" text-anchor="middle">→ (main)</text>
+    <rect x="429" y="0" width="14" height="28" fill="#4385be" />
+    <g fill="#f08a5d"><polygon points="429,0 443,14.0 429,28" /></g>
+    <rect x="443" y="0" width="81" height="28" fill="#4385be" />
+    <text x="483.5" y="18" font-family="'JetBrains Mono', 'Cascadia Code', monospace" font-size="12.5" font-weight="600" fill="#ffffff" text-anchor="middle">♡ 15:05</text>
+    <g fill="#4385be"><polygon points="524,0 538,14.0 524,28" /></g>
+    <rect x="546" y="5" width="7" height="18" fill="#ffffff" opacity="0.85" rx="1" />
+  </g>
+  <!-- Row 2: Cyberpunk • Flame -->
+  <g transform="translate(0, 131)">
+    <text x="32" y="18" font-family="'JetBrains Mono', 'Cascadia Code', monospace" font-size="11.5" font-weight="700" fill="#75809c" letter-spacing="0.5">Cyberpunk • Flame</text>
+    <rect x="195" y="0" width="67" height="28" fill="#00f5d4" />
+    <text x="228.5" y="18" font-family="'JetBrains Mono', 'Cascadia Code', monospace" font-size="12.5" font-weight="600" fill="#0b090a" text-anchor="middle">SxiMao</text>
+    <rect x="262" y="0" width="15" height="28" fill="#7b2cbf" />
+    <g fill="#00f5d4"><path d="M 262 0 Q 271.0 7.0 277 9.799999999999999 Q 268.0 18.2 277 21.0 Q 269.5 25.2 262 28 Z" /></g>
+    <rect x="277" y="0" width="50" height="28" fill="#7b2cbf" />
+    <text x="302.0" y="18" font-family="'JetBrains Mono', 'Cascadia Code', monospace" font-size="12.5" font-weight="600" fill="#ffffff" text-anchor="middle">S-li</text>
+    <rect x="327" y="0" width="15" height="28" fill="#f72585" />
+    <g fill="#7b2cbf"><path d="M 327 0 Q 336.0 7.0 342 9.799999999999999 Q 333.0 18.2 342 21.0 Q 334.5 25.2 327 28 Z" /></g>
+    <rect x="342" y="0" width="106" height="28" fill="#f72585" />
+    <text x="395.0" y="18" font-family="'JetBrains Mono', 'Cascadia Code', monospace" font-size="12.5" font-weight="600" fill="#ffffff" text-anchor="middle">* 🔥 master</text>
+    <rect x="448" y="0" width="15" height="28" fill="#fee440" />
+    <g fill="#f72585"><path d="M 448 0 Q 457.0 7.0 463 9.799999999999999 Q 454.0 18.2 463 21.0 Q 455.5 25.2 448 28 Z" /></g>
+    <rect x="463" y="0" width="81" height="28" fill="#fee440" />
+    <text x="503.5" y="18" font-family="'JetBrains Mono', 'Cascadia Code', monospace" font-size="12.5" font-weight="600" fill="#0b090a" text-anchor="middle">⚡ 15:06</text>
+    <g fill="#fee440"><path d="M 544 0 Q 553.0 7.0 559 9.799999999999999 Q 550.0 18.2 559 21.0 Q 551.5 25.2 544 28 Z" /></g>
+    <rect x="567" y="5" width="7" height="18" fill="#ffffff" opacity="0.85" rx="1" />
+  </g>
+  <!-- Row 3: Tokyo • Slanted -->
+  <g transform="translate(0, 196)">
+    <text x="32" y="18" font-family="'JetBrains Mono', 'Cascadia Code', monospace" font-size="11.5" font-weight="700" fill="#75809c" letter-spacing="0.5">Tokyo • Slanted</text>
+    <rect x="195" y="0" width="67" height="28" fill="#3d59a1" />
+    <text x="228.5" y="18" font-family="'JetBrains Mono', 'Cascadia Code', monospace" font-size="12.5" font-weight="600" fill="#ffffff" text-anchor="middle">SxiMao</text>
+    <rect x="262" y="0" width="14" height="28" fill="#7aa2f7" />
+    <g fill="#3d59a1"><polygon points="262,0 276,28 262,28" /></g>
+    <rect x="276" y="0" width="130" height="28" fill="#7aa2f7" />
+    <text x="341.0" y="18" font-family="'JetBrains Mono', 'Cascadia Code', monospace" font-size="12.5" font-weight="600" fill="#1a1b26" text-anchor="middle">🐍 (venv) S-li</text>
+    <rect x="406" y="0" width="14" height="28" fill="#bb9af7" />
+    <g fill="#7aa2f7"><polygon points="406,0 420,28 406,28" /></g>
+    <rect x="420" y="0" width="81" height="28" fill="#bb9af7" />
+    <text x="460.5" y="18" font-family="'JetBrains Mono', 'Cascadia Code', monospace" font-size="12.5" font-weight="600" fill="#1a1b26" text-anchor="middle"> (dev)</text>
+    <rect x="501" y="0" width="14" height="28" fill="#2ac3de" />
+    <g fill="#bb9af7"><polygon points="501,0 515,28 501,28" /></g>
+    <rect x="515" y="0" width="81" height="28" fill="#2ac3de" />
+    <text x="555.5" y="18" font-family="'JetBrains Mono', 'Cascadia Code', monospace" font-size="12.5" font-weight="600" fill="#1a1b26" text-anchor="middle">🌙 15:07</text>
+    <g fill="#2ac3de"><polygon points="596,0 610,28 596,28" /></g>
+    <rect x="618" y="5" width="7" height="18" fill="#ffffff" opacity="0.85" rx="1" />
+  </g>
+  <!-- Row 4: Nord • Rounded -->
+  <g transform="translate(0, 261)">
+    <text x="32" y="18" font-family="'JetBrains Mono', 'Cascadia Code', monospace" font-size="11.5" font-weight="700" fill="#75809c" letter-spacing="0.5">Nord • Rounded</text>
+    <rect x="195" y="0" width="67" height="28" fill="#5e81ac" />
+    <text x="228.5" y="18" font-family="'JetBrains Mono', 'Cascadia Code', monospace" font-size="12.5" font-weight="600" fill="#ffffff" text-anchor="middle">SxiMao</text>
+    <rect x="262" y="0" width="14" height="28" fill="#81a1c1" />
+    <g fill="#5e81ac"><path d="M 262 0 A 14.0 14.0 0 0 1 262 28 Z" /></g>
+    <rect x="276" y="0" width="50" height="28" fill="#81a1c1" />
+    <text x="301.0" y="18" font-family="'JetBrains Mono', 'Cascadia Code', monospace" font-size="12.5" font-weight="600" fill="#2e3440" text-anchor="middle">S-li</text>
+    <rect x="326" y="0" width="14" height="28" fill="#88c0d0" />
+    <g fill="#81a1c1"><path d="M 326 0 A 14.0 14.0 0 0 1 326 28 Z" /></g>
+    <rect x="340" y="0" width="114" height="28" fill="#88c0d0" />
+    <text x="397.0" y="18" font-family="'JetBrains Mono', 'Cascadia Code', monospace" font-size="12.5" font-weight="600" fill="#2e3440" text-anchor="middle">→ (release)</text>
+    <rect x="454" y="0" width="14" height="28" fill="#8fbcbb" />
+    <g fill="#88c0d0"><path d="M 454 0 A 14.0 14.0 0 0 1 454 28 Z" /></g>
+    <rect x="468" y="0" width="81" height="28" fill="#8fbcbb" />
+    <text x="508.5" y="18" font-family="'JetBrains Mono', 'Cascadia Code', monospace" font-size="12.5" font-weight="600" fill="#2e3440" text-anchor="middle">❄ 15:08</text>
+    <g fill="#8fbcbb"><path d="M 549 0 A 14.0 14.0 0 0 1 549 28 Z" /></g>
+    <rect x="571" y="5" width="7" height="18" fill="#ffffff" opacity="0.85" rx="1" />
+  </g>
+  <!-- Row 5: Sakura • Wave -->
+  <g transform="translate(0, 326)">
+    <text x="32" y="18" font-family="'JetBrains Mono', 'Cascadia Code', monospace" font-size="11.5" font-weight="700" fill="#75809c" letter-spacing="0.5">Sakura • Wave</text>
+    <rect x="195" y="0" width="67" height="28" fill="#ff758f" />
+    <text x="228.5" y="18" font-family="'JetBrains Mono', 'Cascadia Code', monospace" font-size="12.5" font-weight="600" fill="#ffffff" text-anchor="middle">SxiMao</text>
+    <rect x="262" y="0" width="14" height="28" fill="#ff4d6d" />
+    <g fill="#ff758f"><path d="M 262 0 C 274.6 5.6000000000000005 264.8 22.400000000000002 276 28 L 262 28 Z" /></g>
+    <rect x="276" y="0" width="50" height="28" fill="#ff4d6d" />
+    <text x="301.0" y="18" font-family="'JetBrains Mono', 'Cascadia Code', monospace" font-size="12.5" font-weight="600" fill="#ffffff" text-anchor="middle">S-li</text>
+    <rect x="326" y="0" width="14" height="28" fill="#c9184a" />
+    <g fill="#ff4d6d"><path d="M 326 0 C 338.6 5.6000000000000005 328.8 22.400000000000002 340 28 L 326 28 Z" /></g>
+    <rect x="340" y="0" width="89" height="28" fill="#c9184a" />
+    <text x="384.5" y="18" font-family="'JetBrains Mono', 'Cascadia Code', monospace" font-size="12.5" font-weight="600" fill="#ffffff" text-anchor="middle">🌸 (main)</text>
+    <rect x="429" y="0" width="14" height="28" fill="#a4133c" />
+    <g fill="#c9184a"><path d="M 429 0 C 441.6 5.6000000000000005 431.8 22.400000000000002 443 28 L 429 28 Z" /></g>
+    <rect x="443" y="0" width="81" height="28" fill="#a4133c" />
+    <text x="483.5" y="18" font-family="'JetBrains Mono', 'Cascadia Code', monospace" font-size="12.5" font-weight="600" fill="#ffffff" text-anchor="middle">♡ 15:09</text>
+    <g fill="#a4133c"><path d="M 524 0 C 536.6 5.6000000000000005 526.8 22.400000000000002 538 28 L 524 28 Z" /></g>
+    <rect x="546" y="5" width="7" height="18" fill="#ffffff" opacity="0.85" rx="1" />
+  </g>
+  <!-- Row 6: Dracula • Slant Down -->
+  <g transform="translate(0, 391)">
+    <text x="32" y="18" font-family="'JetBrains Mono', 'Cascadia Code', monospace" font-size="11.5" font-weight="700" fill="#75809c" letter-spacing="0.5">Dracula • Slant Down</text>
+    <rect x="195" y="0" width="67" height="28" fill="#6272a4" />
+    <text x="228.5" y="18" font-family="'JetBrains Mono', 'Cascadia Code', monospace" font-size="12.5" font-weight="600" fill="#ffffff" text-anchor="middle">SxiMao</text>
+    <rect x="262" y="0" width="14" height="28" fill="#bd93f9" />
+    <g fill="#6272a4"><polygon points="262,0 276,0 262,28" /></g>
+    <rect x="276" y="0" width="50" height="28" fill="#bd93f9" />
+    <text x="301.0" y="18" font-family="'JetBrains Mono', 'Cascadia Code', monospace" font-size="12.5" font-weight="600" fill="#282a36" text-anchor="middle">S-li</text>
+    <rect x="326" y="0" width="14" height="28" fill="#ff79c6" />
+    <g fill="#bd93f9"><polygon points="326,0 340,0 326,28" /></g>
+    <rect x="340" y="0" width="122" height="28" fill="#ff79c6" />
+    <text x="401.0" y="18" font-family="'JetBrains Mono', 'Cascadia Code', monospace" font-size="12.5" font-weight="600" fill="#282a36" text-anchor="middle">*  (hotfix)</text>
+    <rect x="462" y="0" width="14" height="28" fill="#50fa7b" />
+    <g fill="#ff79c6"><polygon points="462,0 476,0 462,28" /></g>
+    <rect x="476" y="0" width="81" height="28" fill="#50fa7b" />
+    <text x="516.5" y="18" font-family="'JetBrains Mono', 'Cascadia Code', monospace" font-size="12.5" font-weight="600" fill="#282a36" text-anchor="middle">💀 15:10</text>
+    <g fill="#50fa7b"><polygon points="557,0 571,0 557,28" /></g>
+    <rect x="579" y="5" width="7" height="18" fill="#ffffff" opacity="0.85" rx="1" />
+  </g>
+  <!-- Row 7: Matrix • Pixel -->
+  <g transform="translate(0, 456)">
+    <text x="32" y="18" font-family="'JetBrains Mono', 'Cascadia Code', monospace" font-size="11.5" font-weight="700" fill="#75809c" letter-spacing="0.5">Matrix • Pixel</text>
+    <rect x="195" y="0" width="67" height="28" fill="#003b00" />
+    <text x="228.5" y="18" font-family="'JetBrains Mono', 'Cascadia Code', monospace" font-size="12.5" font-weight="600" fill="#00ff41" text-anchor="middle">SxiMao</text>
+    <rect x="262" y="0" width="14" height="28" fill="#005f00" />
+    <g fill="#003b00"><path d="M 262 0 H 266.9 V 9.24 H 271.8 V 18.48 H 276 V 28 H 262 Z" /></g>
+    <rect x="276" y="0" width="50" height="28" fill="#005f00" />
+    <text x="301.0" y="18" font-family="'JetBrains Mono', 'Cascadia Code', monospace" font-size="12.5" font-weight="600" fill="#00ff41" text-anchor="middle">S-li</text>
+    <rect x="326" y="0" width="14" height="28" fill="#008f11" />
+    <g fill="#005f00"><path d="M 326 0 H 330.9 V 9.24 H 335.8 V 18.48 H 340 V 28 H 326 Z" /></g>
+    <rect x="340" y="0" width="89" height="28" fill="#008f11" />
+    <text x="384.5" y="18" font-family="'JetBrains Mono', 'Cascadia Code', monospace" font-size="12.5" font-weight="600" fill="#000000" text-anchor="middle">💻 (main)</text>
+    <rect x="429" y="0" width="14" height="28" fill="#00ff41" />
+    <g fill="#008f11"><path d="M 429 0 H 433.9 V 9.24 H 438.8 V 18.48 H 443 V 28 H 429 Z" /></g>
+    <rect x="443" y="0" width="81" height="28" fill="#00ff41" />
+    <text x="483.5" y="18" font-family="'JetBrains Mono', 'Cascadia Code', monospace" font-size="12.5" font-weight="600" fill="#000000" text-anchor="middle">⚡ 15:11</text>
+    <g fill="#00ff41"><path d="M 524 0 H 528.9 V 9.24 H 533.8 V 18.48 H 538 V 28 H 524 Z" /></g>
+    <rect x="546" y="5" width="7" height="18" fill="#ffffff" opacity="0.85" rx="1" />
+  </g>
+  <!-- Row 8: Minimalist • Flat -->
+  <g transform="translate(0, 521)">
+    <text x="32" y="18" font-family="'JetBrains Mono', 'Cascadia Code', monospace" font-size="11.5" font-weight="700" fill="#75809c" letter-spacing="0.5">Minimalist • Flat</text>
+    <rect x="195" y="0" width="67" height="28" fill="#24292e" />
+    <text x="228.5" y="18" font-family="'JetBrains Mono', 'Cascadia Code', monospace" font-size="12.5" font-weight="600" fill="#ffffff" text-anchor="middle">SxiMao</text>
+    <rect x="262" y="0" width="50" height="28" fill="#0366d6" />
+    <text x="287.0" y="18" font-family="'JetBrains Mono', 'Cascadia Code', monospace" font-size="12.5" font-weight="600" fill="#ffffff" text-anchor="middle">S-li</text>
+    <rect x="312" y="0" width="89" height="28" fill="#28a745" />
+    <text x="356.5" y="18" font-family="'JetBrains Mono', 'Cascadia Code', monospace" font-size="12.5" font-weight="600" fill="#ffffff" text-anchor="middle">→ (main)</text>
+    <rect x="401" y="0" width="81" height="28" fill="#6f42c1" />
+    <text x="441.5" y="18" font-family="'JetBrains Mono', 'Cascadia Code', monospace" font-size="12.5" font-weight="600" fill="#ffffff" text-anchor="middle">✨ 15:12</text>
+    <rect x="490" y="5" width="7" height="18" fill="#ffffff" opacity="0.85" rx="1" />
+  </g>
 </svg>
